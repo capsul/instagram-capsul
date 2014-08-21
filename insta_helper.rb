@@ -2,30 +2,29 @@ require 'httparty'
 require 'json'
 
 module Media
-  def self.search(params = {})
+  def self.search params = {} 
     media_fetcher = MediaFetcher.new
     media_fetcher.search_media params
   end
 
   class MediaFetcher
-    def search_media(params = {})
-      url = build_url(params)
+    def search_media params = {} 
+      url = build_url params 
       headers = build_header
 
-      media = HTTParty.get(url, headers)
+      media = HTTParty.get url, headers
       media_to_granuals media['data']
     end
 
     private
-
-    def build_url(params = {})
+    def build_url params = {}
       url = "https://api.instagram.com/v1/media/search?" + 
-        "lat=" + params['lat'] +
-        "&lng=" + params['lng'] +
-        "&max_timestamp="+ params['time'] +
-        "&distance=" + "200" +
-        "&access_token=" + 
-        ENV['INSTAGRAM_ACCESS_TOKEN']
+      "lat="  + params['lat'] +
+      "&lng=" + params['lng'] +
+      "&max_timestamp=" + params['time'] +
+      "&distance=" + "200" +
+      "&access_token=" + 
+      ENV['INSTAGRAM_ACCESS_TOKEN']
     end
 
     def build_header
@@ -33,7 +32,6 @@ module Media
         "User-Agent" => "request"
       }
     end
-
 
     def location media
       {
@@ -84,6 +82,5 @@ module Media
         media_to_granual media
       end
     end
-
   end
 end
