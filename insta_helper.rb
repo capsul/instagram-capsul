@@ -54,7 +54,7 @@ module Media
         }
       else 
         {
-          null: "no image url"
+          url: "no image url"
         }
       end
     end
