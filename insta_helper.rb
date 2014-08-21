@@ -22,7 +22,7 @@ module Media
       "lat="  + params['lat'] +
       "&lng=" + params['lng'] +
       "&max_timestamp=" + params['time'] +
-      "&distance=" + "200" +
+      "&distance=" + "400" +
       "&access_token=" + 
       ENV['INSTAGRAM_ACCESS_TOKEN']
     end
