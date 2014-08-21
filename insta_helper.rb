@@ -50,11 +50,7 @@ module Media
       elsif media['type'] == 'video'
         {
           low_resolution:      media['videos']['low_resolution']['url'],
-          standard_resolution: media['videos']['high_resolution']['url']
-        }
-      else 
-        {
-          url: "no image url"
+          standard_resolution: media['videos']['standard_resolution']['url']
         }
       end
     end
