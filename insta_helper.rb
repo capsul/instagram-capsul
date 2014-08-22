@@ -23,8 +23,7 @@ module Media
       "&lng=" + params['lng'] +
       "&max_timestamp=" + params['time'] +
       "&distance=" + "200" +
-      "&access_token=" + 
-      ENV['INSTAGRAM_ACCESS_TOKEN']
+      "&access_token=#{ENV['INSTAGRAM_ACCESS_TOKEN']}"
     end
 
     def build_header
