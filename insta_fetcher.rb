@@ -1,14 +1,16 @@
 require 'sinatra'
 require 'json'
-load './insta_helper.rb'
+load './insta_query.rb'
 
 get '/media' do
-  media = Media.search(params)
+
+  instagrams = InstaQuery.search(params)
   
   return {
     latitude:   params[:lat], 
     longitude:  params[:lng],
     time:       params[:time],
-    media:      media
+    media:      instagrams
   }.to_json
+  
 end
